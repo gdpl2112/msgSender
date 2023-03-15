@@ -14,7 +14,7 @@ public final class MsgSender extends JavaPlugin {
     public static final MsgSender INSTANCE = new MsgSender();
 
     private MsgSender() {
-        super(new JvmPluginDescriptionBuilder("io.github.kloping.MsgSender", "1.1").name("MsgSender").info("消息转发").author("kloping").build());
+        super(new JvmPluginDescriptionBuilder("io.github.kloping.MsgSender", "1.2").name("MsgSender").info("消息转发").author("kloping").build());
     }
 
     public Config config = new Config();

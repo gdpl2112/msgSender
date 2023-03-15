@@ -113,16 +113,14 @@ public class DefaultListenerHost extends SimpleListenerHost {
         Config config = MsgSender.INSTANCE.config;
         long qid = config.getQid();
         if (qid < 0) return;
-        if (session == null) {
+        if (session == null || session.getId() != event.getGroup().getId()) {
             if (!hasAt(event.getMessage(), event.getBot().getId())) return;
             gid = event.getGroup().getId();
             event.getBot().getFriend(qid).sendMessage(String.format(config.getTips0(), event.getSenderName(), event.getSender().getId(), event.getGroup().getId()));
             event.getBot().getFriend(qid).sendMessage(event.getMessage());
         } else if (session.getId() == event.getGroup().getId()) {
             MessageChainBuilder builder = new MessageChainBuilder();
-            builder.append(event.getMessage()).append("\n")
-                    .append(event.getSender().getNameCard())
-                    .append("(" + event.getSender().getId() + ")");
+            builder.append(event.getMessage()).append("\n").append(event.getSender().getNameCard()).append("(" + event.getSender().getId() + ")");
             event.getBot().getFriend(qid).sendMessage(builder.build());
         }
     }

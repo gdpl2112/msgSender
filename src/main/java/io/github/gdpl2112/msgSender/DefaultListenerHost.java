@@ -42,10 +42,10 @@ public class DefaultListenerHost extends SimpleListenerHost {
                     String e0 = text.replace(config.getStart0(), "").trim();
                     if (e0.isEmpty()) {
                         if (fid <= 0) {
+                            event.getSender().sendMessage(FORMAT1);
+                        } else {
                             session = event.getBot().getFriend(fid);
                             event.getSender().sendMessage(String.format(FORMAT0, fid, config.getEnd()));
-                        } else {
-                            event.getSender().sendMessage(FORMAT1);
                         }
                     } else {
                         try {

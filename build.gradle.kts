@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.gdpl2112"
-version = "1.2"
+version = "1.3"
 
 repositories {
     maven("https://maven.aliyun.com/repository/public")

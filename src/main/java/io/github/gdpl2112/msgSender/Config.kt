@@ -7,4 +7,5 @@ data class Config(
     var start0: String = "开启会话",
     var start1: String = "开启群会话",
     var end: String = "结束会话",
+//    var recall: String = "/撤回",
 )
